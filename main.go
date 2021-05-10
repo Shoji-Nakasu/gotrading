@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 
+	"github.com/Shoji-Nakasu/gotrading/app/controllers"
 	"github.com/Shoji-Nakasu/gotrading/app/models"
 	"github.com/Shoji-Nakasu/gotrading/config"
 	"github.com/Shoji-Nakasu/gotrading/utils"
@@ -11,6 +12,7 @@ import (
 func main() {
 	utils.LoggingSettings(config.Config.LogFile)
 	fmt.Println(models.DbConnection)
+	controllers.StreamIngectionData()
 
 	// apiClient := bitflyer.New(config.Config.ApiKey, config.Config.ApiSecret)
 

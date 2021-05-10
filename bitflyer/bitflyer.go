@@ -88,7 +88,6 @@ func (api *APIClient) doRequest(method, urlPath string, query map[string]string,
 }
 
 //getbalance（資産残高の取得 url:https://lightning.bitflyer.com/docs#%E8%B3%87%E7%94%A3%E6%AE%8B%E9%AB%98%E3%82%92%E5%8F%96%E5%BE%97）
-
 type Balance struct {
 	CurrentCode string  `json:"currency_code"`
 	Amount      float64 `json:"amount"`
@@ -113,7 +112,6 @@ func (api *APIClient) GetBalance() ([]Balance, error) {
 }
 
 //ticker（url:https://lightning.bitflyer.com/docs#ticker）
-
 type Ticker struct {
 	ProductCode     string  `json:"product_code"`
 	State           string  `json:"state"`
