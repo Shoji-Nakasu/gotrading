@@ -13,6 +13,7 @@ func StreamIngectionData() {
 	var tickerChannel = make(chan bitflyer.Ticker)
 	apiClient := bitflyer.New(config.Config.ApiKey, config.Config.ApiSecret)
 	go apiClient.GetRealTimeTicker(config.Config.ProductCode, tickerChannel)
+	
 	//webserver.goのStartWebServer()がブロックしないように並列処理
 	go func() {
 		for ticker := range tickerChannel {
