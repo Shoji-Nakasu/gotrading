@@ -30,7 +30,7 @@ func viewChartHandler(w http.ResponseWriter, r *http.Request) {
 
 type JSONError struct {
 	Error string `json:"error"`
-	Code  int    `json:"code`
+	Code  int    `json:"code"`
 }
 
 //jsonで何かあったときにはjson型でエラーを返す
