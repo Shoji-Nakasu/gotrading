@@ -8,14 +8,14 @@ import (
 )
 
 type Candle struct {
-	ProductCode string
-	Duration    time.Duration
-	Time        time.Time
-	Open        float64
-	Close       float64
-	High        float64
-	Low         float64
-	Volume      float64
+	ProductCode string        `json:"product_code"`
+	Duration    time.Duration `json:"duration"`
+	Time        time.Time     `json:"time"`
+	Open        float64       `json:"open"`
+	Close       float64       `json:"close"`
+	High        float64       `json:"high"`
+	Low         float64       `json:"low"`
+	Volume      float64       `json:"volume"`
 }
 
 //コンストラクタ
@@ -71,7 +71,7 @@ func GetCandle(productCode string, duration time.Duration, dateTime time.Time) *
 }
 
 //ticker情報をデータベースに書き込む（ticker情報がくるたびに呼び出すファンクション）
-func CreateCandleWithDuration(ticker bitflyer.Ticker, productCode string, duration time.Duration)bool {
+func CreateCandleWithDuration(ticker bitflyer.Ticker, productCode string, duration time.Duration) bool {
 	currentCandle := GetCandle(productCode, duration, ticker.TruncateDateTime(duration))
 	price := ticker.GetMidPrice()
 	//Candle情報がなかった場合、データベースに書き込む（CREATE）
