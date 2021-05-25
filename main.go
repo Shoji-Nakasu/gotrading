@@ -11,6 +11,7 @@ func main() {
 	controllers.StreamIngectionData()
 	controllers.StartWebServer()
 
+
 	// apiClient := bitflyer.New(config.Config.ApiKey, config.Config.ApiSecret)
 
 	// //新規注文

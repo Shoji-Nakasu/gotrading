@@ -33,7 +33,7 @@ func New(key, secret string) *APIClient {
 	return apiClient
 }
 
-//ヘッダーを作るメソッド(bitflyerの指示に従って作成 url:https://lightning.bitflyer.com/docs#%E8%AA%8D%E8%A8%BC)
+//HTTPヘッダを作るメソッド(bitflyerの指示に従って作成 url:https://lightning.bitflyer.com/docs#%E8%AA%8D%E8%A8%BC)
 func (api APIClient) header(method, endpoint string, body []byte) map[string]string {
 	timestamp := strconv.FormatInt(time.Now().Unix(), 10)
 	message := timestamp + method + endpoint + string(body) //ACCESS-TIMESTAMP, HTTP メソッド, リクエストのパス, リクエストボディ を文字列として連結したもの
@@ -49,7 +49,7 @@ func (api APIClient) header(method, endpoint string, body []byte) map[string]str
 	}
 }
 
-//ヘッダーを使ってリクエストを投げるメソッド
+//HTTPヘッダを使ってリクエストを投げるメソッド
 //Getの場合はqueryを、Postの場合はbyteを渡してやる
 func (api *APIClient) doRequest(method, urlPath string, query map[string]string, data []byte) (body []byte, err error) {
 	baseURL, err := url.Parse(baseURL) //URLが正しいか解析
