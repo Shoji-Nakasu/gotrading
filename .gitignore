@@ -2,6 +2,7 @@
 *.log
 *.sql
 *.sqlite
+*.ini
 
 # Binaries for programs and plugins
 *.exe
